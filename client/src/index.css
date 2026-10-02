@@ -15,19 +15,138 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #0f172a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #334155;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #475569;
 }
 
 /* Smooth transitions */
 .transition-smooth {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* 3D Floating & Glossy Animations matching reference design */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(var(--rot, -35deg));
+  }
+  50% {
+    transform: translateY(-18px) rotate(calc(var(--rot, -35deg) + 2deg));
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(var(--rot, -40deg));
+  }
+  50% {
+    transform: translateY(16px) rotate(calc(var(--rot, -40deg) - 2deg));
+  }
+}
+
+@keyframes floatTilt {
+  0%, 100% {
+    transform: translateY(0px) rotate(var(--rot, -25deg));
+  }
+  50% {
+    transform: translateY(-14px) rotate(calc(var(--rot, -25deg) + 3deg));
+  }
+}
+
+@keyframes floatSmall {
+  0%, 100% {
+    transform: translateY(0px) rotate(var(--rot, -30deg));
+  }
+  50% {
+    transform: translateY(-8px) rotate(calc(var(--rot, -30deg) - 2deg));
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes sheenPass {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 8.5s ease-in-out infinite;
+}
+
+.animate-float-tilt {
+  animation: floatTilt 6s ease-in-out infinite;
+}
+
+.animate-float-small {
+  animation: floatSmall 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-sheen {
+  animation: sheenPass 4s ease-in-out infinite;
+}
+
+/* Glassmorphism Styles */
+.glass-panel-dark {
+  background: rgba(13, 17, 28, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-dark {
+  background: rgba(18, 23, 38, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
+}
+
+.glass-input-dark {
+  background: rgba(22, 28, 45, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+}
+
+.glass-input-dark:focus {
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+}
+
+.glow-cyan-ambient {
+  box-shadow: 0 0 80px 20px rgba(6, 182, 212, 0.25);
+}
+
+.glow-purple-ambient {
+  box-shadow: 0 0 90px 30px rgba(168, 85, 247, 0.3);
+}
+

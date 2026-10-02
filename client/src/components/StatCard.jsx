@@ -53,11 +53,14 @@ const StatCard = ({
 
   return (
     <div
-      className={`bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm transition-all duration-200 hover:shadow-md ${styles.border}`}
+      className={`relative overflow-hidden bg-white/95 rounded-2xl border border-slate-200/80 p-5 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 group ${styles.border}`}
     >
+      {/* Subtle glossy glass light sheen reflection on top edge */}
+      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      
       <div className="flex items-start justify-between">
         <div className="space-y-1">
-          <p className="text-xs font-medium uppercase tracking-wider text-slate-500">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
             {title}
           </p>
           <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
@@ -65,7 +68,7 @@ const StatCard = ({
           </h3>
         </div>
         {Icon && (
-          <div className={`p-2.5 rounded-xl ${styles.iconBg}`}>
+          <div className={`p-2.5 rounded-xl transition-transform duration-300 group-hover:scale-110 shadow-sm ${styles.iconBg}`}>
             <Icon className="w-5 h-5" />
           </div>
         )}
